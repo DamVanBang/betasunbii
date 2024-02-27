@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Đăng nhập - SUNBII</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<link rel="stylesheet" type="text/css" href="slide navbar style.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="/login/main.css">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="dangnhap">
+				<form id="dangnhap" class="dangnhap-from">
+          <h2 class="logo">SUNBII</h2>
+					<label for="chk" aria-hidden="true">Đăng nhập</label>
+          
+          <div id="error-message" style="display: none; color: red; text-align: center">
+              <!-- Error message will be displayed here -->
+          </div>
+
+          <div class="warpInput">
+            <span class="focus-input100" data-symbol="&#xf206;"></span>
+			  		<input class="taikhoanLoginFrom" type="text" name="username" placeholder="Tài khoản">
+					<!--<input type="email" name="email" placeholder="Email">-->
+          </div>
+           <div class="warpInput">
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+				  	<input class="matkhauLoginFrom" type="password" name="password" placeholder="Mật khẩu">
+          </div>
+          
+          <div class="forgotPassword">
+            <a href="#"><b>Quên mật khẩu?</b></a>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn" type="loginSubmit">Đăng nhập</button>
+            </div>
+          </div>
+          
+				</form>
+
+        <div style="font-family: monospace;">
+        <label style=" font-size: xx-large; margin: 30px 0 0; ">Đang thử nghiệm</label>
+        <p style="font-size: larger;text-align: center;">Được lập trình và thiết kế bởi: <br><a style="color: mediumslateblue;font-size: xxx-large;" href="//fb.com/dvbdeveloper"><b>Đàm Văn Bằng</b></a></p>
+        </div>
+        <script>
+          document.getElementById('dangnhap').addEventListener('submit', function(event) {
+              event.preventDefault();
+            const errorMessageElement = document.getElementById('error-message');
+            const taikhoanLoginFrom = document.getElementsByClassName('taikhoanLoginFrom');
+            const matkhauLoginFrom = document.getElementsByClassName('matkhauLoginFrom');
+
+            //resetFrom
+            for (let i = 0; i < matkhauLoginFrom.length; i++) {
+              matkhauLoginFrom[i].classList.remove('fromError')
+            };
+            for (let i = 0; i < taikhoanLoginFrom.length; i++) {
+              taikhoanLoginFrom[i].classList.remove('fromError')
+            };
+
+            //Chộm dữ liệu từ Sever
+              const formData = new FormData(this);
+              fetch('/login', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(Object.fromEntries(formData)),
+              })
+              .then(response => response.json())
+              .then(data => {
+                  console.log(data);
+
+
+                if(data.status != 'success') {
+                  errorMessageElement.textContent = data.message;
+                  errorMessageElement.style.display = 'block';
+                }
+
+                switch (data.status) {
+                  case 'success': window.location.href = "/";
+                    break;
+                    
+                  case 'account not found':
+                    // Xử lý khi đăng nhập thất bại
+                    for (let i = 0; i < taikhoanLoginFrom.length; i++) {
+                      taikhoanLoginFrom[i].placeholder = 'Tài khoản ⚠';
+                      taikhoanLoginFrom[i].classList.add('fromError');
+                      taikhoanLoginFrom[i].value = ""
+                      matkhauLoginFrom[i].value = ""
+                    };
+                    break;
+                    
+                  case 'wrong password':
+                    // Xử lý khi đăng nhập thất bại
+                    for (let i = 0; i < matkhauLoginFrom.length; i++) {
+                      matkhauLoginFrom[i].placeholder = 'Mật khẩu ⚠';
+                      matkhauLoginFrom[i].classList.add('fromError');
+                      matkhauLoginFrom[i].value = ""
+                    };
+                    break;
+                    
+                    default:
+                        console.error('Loại dữ liệu chưa xử lý:', data.status);
+                }
+
+              })
+                
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+          });
+        </script>
+
+			</div>
+      <div class="dangky">
+        <label for="chk" aria-hidden="true">Đăng ký</label>
+      <form id="dangky" class="dangky-from">
+        <div class="warpInput">
+          <span class="focus-input100" data-symbol="&#xf22e;"></span>
+           <input type="text" name="name" placeholder="Tên" required>
+        </div>
+        <div class="warpInput">
+          <span class="focus-input100" data-symbol="&#xf205;"></span>
+        <input type="text" name="newUsername" placeholder="Tài khoản" required>
+        </div>
+        <div class="warpInput">
+          <span class="focus-input100" data-symbol="&#xf191;"></span>
+        <input type="password" name="newPassword" placeholder="Mật khẩu" required>
+        </div>
+        <div class="warpInput">
+          <span class="focus-input100" data-symbol="&#xf15a;"></span>
+        <input type="email" name="email" placeholder="Email">
+        </div>
+        <div class="warpInput">
+          <span class="focus-input100" data-symbol="&#xf2be;"></span>
+        <input type="text" name="tel" placeholder="Số điện thoại">
+        </div>
+
+        <select class="chonGioiTinh" id="gender" name="gender">
+          <option value="" disabled selected hidden>Chọn giới tính</option>
+          <option value="male">Nam</option>
+          <option value="female">Nữ</option>
+          <option value="other">Khác</option>
+        </select>
+  
+        
+        <label class="chonLabel" for="datepicker">Chọn ngày sinh</label>
+        <div class="chonNgaySinh">        
+        <select id="day" name="day">
+          <option value="" disabled selected hidden>Ngày</option>
+        </select>
+        <select id="month" name="month">
+          <option value="" disabled selected hidden>Tháng</option>
+        </select>
+        <select id="year" name="year">
+          <option value="" disabled selected hidden>Năm</option>
+        </select>
+        </div>
+        <script>
+          // Tạo các tùy chọn cho ngày (1-31)
+          var daySelect = document.getElementById("day");
+          for (var i = 1; i <= 31; i++) {
+            var option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            daySelect.add(option);
+          }
+
+          // Tạo các tùy chọn cho tháng (1-12)
+          var monthSelect = document.getElementById("month");
+          for (var i = 1; i <= 12; i++) {
+            var option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            monthSelect.add(option);
+          }
+
+          // Tạo các tùy chọn cho năm (từ năm hiện tại đến 1900)
+          var yearSelect = document.getElementById("year");
+          var currentYear = new Date().getFullYear();
+          for (var i = currentYear; i >= 1950; i--) {
+            var option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            yearSelect.add(option);
+          }
+        </script>
+        
+        <div class="forgotPassword"></div>
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn" type="submit">Đăng ký</button>
+          </div>
+        </div>
+        
+        <script>
+            document.getElementById('dangky').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Lấy giá trị từ các trường input
+            const newUsername = document.getElementsByName("newUsername")[0].value;
+            const newPassword = document.getElementsByName("newPassword")[0].value;
+            const email = document.getElementsByName("email")[0].value;
+            const tel = document.getElementsByName("tel")[0].value;
+            const name = document.getElementsByName("name")[0].value;
+            const gender = document.getElementById("gender").value;
+            const day = document.getElementById("day").value;
+            const month = document.getElementById("month").value;
+            const year = document.getElementById("year").value;
+
+            const birthday = year + "-" + month + "-" + day;
+
+              if(newUsername.split("").length < 8){
+                 alert('User Name phải có trên 8 ký tự');
+              }
+              
+            // Gửi dữ liệu đăng ký lên máy chủ
+            fetch('/signup', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                newUsername,
+                newPassword,
+                email,
+                tel,
+                name,
+                gender,
+                birthday,
+              }),
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              // Xử lý phản hồi từ máy chủ
+              if (data.status === 'success') {
+                alert('Đăng ký thành công');
+               // setTimeout(() => {
+                  window.location.href = "/";
+               // }, 1000);
+                // Thực hiện các hành động sau khi đăng ký thành công
+              } else {
+                alert('Đăng ký thất bại: ' + data.message);
+                // Xử lý khi đăng ký thất bại
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+          });
+        </script>
+      </form>
+      </div>
+</body>
+</html>

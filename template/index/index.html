@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="keywords" content="SUNBII" />
+    <meta name="description" content="" />
+    <title>SUNBII</title>
+    <link rel="stylesheet" href="/main.css"/>
+    </head>
+    <body onload="loadPage()" class="u-body u-xl-mode">
+      <header>
+        <div class="a">
+          <div class="hLogo"><a href="/">SUNBII</a></div>
+          <div>
+            <from class="searchFrom" action="/" method="get">
+              <input type="search" id="searchInput" name="search" placeholder="Tìm kiếm"/>
+            </from>
+          </div>
+          <div class="gAccount">
+            <!-- Sử dụng input checkbox để kích hoạt dropdown content -->
+            <input type="checkbox" id="account" class="toggle" style="display: none;"/>
+            <a id="loginButton" href="#">
+              <label class="e" id="userName">Tên người dùng</label>
+            </a>
+            <div class="dropdown-content">
+              <a href="/profile"><div class="tuychonAccount">Hồ sơ</div></a>
+              <a href="/settings"><div class="tuychonAccount">Cài đặt</div></a>
+              <a href="/logout"><div class="tuychonAccount">Đăng xuất</div></a>
+            </div>
+          </div>
+
+        </div>
+      </header>
+      <div class="u-section-1" id="sec-4ba2">
+        <div class="u-list u-list-1">
+          <h1 class="searchNoti"></h1>
+          <div style="transition: all 0.25s;" id="listModules" class="u-repeater u-repeater-1"></div>
+          <button class="e loadAllModules" onclick="loadFullModules()">Hiển thị toàn bộ</button>
+        </div>
+      </div>
+      <footer class="u-backlink u-clearfix u-grey-80">
+        <a class="u-link" href="#" target="_blank">Web Design</a>
+        <p class="u-text">created with</p>
+        <a href="#" target="_blank" >Đàm Văn Bằng</a>.
+        <a class="u-text-2">Đề xuất thêm tiện ích?</a>
+      </footer>
+    </body>
+  <script src="./main.js"></script>
+  </html>
+

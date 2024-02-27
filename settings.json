@@ -1,0 +1,15 @@
+{
+  "language": "vi",
+  "timezone": "Asia/Ho_Chi_minh",
+  "nameWebsite": "SUNBII",
+  "autoHomePagePost": {
+    "startus": "true",
+    "numberOfPost": 4
+  },
+  "dont-load-modules": [
+    "chatroomapi.js",
+    "ghi.js",
+    "tinhdiem.js",
+    "bannerdvfb"
+  ]
+}

@@ -1,0 +1,315 @@
+/* Khai báo biến */
+:root {
+  --shadow-effect: 5px 8px 25px #000000b8;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  background-image: url('./login/bg-01.jpg');
+  color: #333;
+  background-size: cover;
+  padding: 3%;
+}
+
+a {text-decoration: none}
+
+input {outline: none}
+
+.hLogo {
+  font-weight: bold;
+  font-family: fantasy;
+  font-size: x-large;
+  transition: all .5s;
+  padding-left: 15px;
+}
+
+.u-section-1 {
+  background-image: none;
+  min-height: 695px;
+  margin: 50px 0 50px 0;
+}
+
+.u-section-1 .u-shape-1 {
+  height: 426px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-text-2 {margin-left: 50px}
+
+.u-section-1 .u-list-1 {
+  grid-template-rows: repeat(1, auto);
+  grid-auto-rows: 100%;
+}
+
+.u-section-1 .u-repeater-1 {
+  grid-template-columns: repeat(5, calc(20% - 24px));
+  grid-gap: 30px;
+}
+
+.u-section-1 .u-list-item-1 {background-image: none}
+
+.u-container-layout-1 {padding: 20px}
+
+.u-section-1 .u-icon-1 {
+  height: 87px;
+  width: 87px;
+  background-color: #;
+  margin: 0 auto 0 0;
+  padding: 16px;
+  display: flex;
+}
+
+.u-section-1 .u-text-3 {margin: 20px auto 0 0}
+
+.u-section-1 .u-text-4 {
+  font-style: italic;
+  margin: 20px auto 0 0;
+}
+
+.u-section-1 .u-list-item-2 {background-image: none}
+
+.u-section-1 .u-container-layout-2 {padding: 40px 30px 30px}
+
+.u-section-1 .u-icon-2 {
+  height: 87px;
+  width: 87px;
+  background-image: none;
+  margin: 0 auto 0 0;
+  padding: 16px;
+}
+
+.u-section-1 .u-text-5 {margin: 20px auto 0 0}
+
+.u-section-1 .u-text-6 {
+  font-style: italic;
+  margin: 20px auto 0 0;
+}
+
+.u-section-1 .u-list-item-3 {background-image: none}
+
+.u-section-1 .u-container-layout-3 {padding: 40px 30px 30px}
+
+.u-section-1 .u-icon-3 {
+  height: 87px;
+  width: 87px;
+  background-image: none;
+  margin: 0 auto 0 0;
+  padding: 16px;
+}
+
+.u-section-1 .u-text-7 {margin: 20px auto 0 0}
+
+.u-section-1 .u-text-8 {
+  font-style: italic;
+  margin: 20px auto 0 0;
+}
+
+.iTem {
+  border-radius: 10px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: var(--shadow-effect);
+}
+
+.u-repeater {display: grid}
+
+header {
+  background: #fff;
+  padding: 8px 0;
+  border-bottom: 1px solid #ececec;
+  border-radius: 0 0 25px 25px;
+  color: #333;
+  box-shadow: var(--shadow-effect);
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer {
+  box-shadow: var(--shadow-effect);
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
+}
+
+footer a {color: #fcc6b0}
+
+footer a, footer p {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gAccount {
+  position: relative;
+  transition: all .5s;
+  padding-right: 15px;
+}
+
+.e {
+  line-height: 35px;
+  margin: 0;
+  border: 1px solid #d9d9d9;
+  border-radius: 18px;
+  font-size: 14px;
+  align-items: center;
+  color: rgba(22, 24, 26, 0.8);
+  padding: 0 20px;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  transition: all .5s;
+}
+
+.anMenu {
+  font-size: 0;
+  padding: 0;
+  border: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  min-width: 160px;
+  box-shadow: var(--shadow-effect);
+  right: 0;
+  z-index: 3;
+  padding: 5px 0;
+}
+
+.tuychonAccount {
+  padding: 0 20px;
+  display: block;
+  max-width: 100%;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 44px;
+}
+
+.tuychonAccount:hover {
+  background-color: #f007fb;
+  color: #fff;
+}
+
+/* Hiển thị dropdown content khi input checkbox được checked */
+
+.toggle:checked ~ .dropdown-content {display: block}
+
+/* Ẩn dropdown content khi input checkbox không được checked */
+
+.toggle:not(: checked) ~ .dropdown-content {display: none}
+
+.searchFrom input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+.searchFrom input::-webkit-search-decoration, .searchFrom input::-webkit-search-cancel-button {display: none}
+
+.searchFrom input[type="search"] {
+  background: #ededed url('https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png') no-repeat 9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 70px;
+  border-radius: 10em;
+  transition: all .5s;
+}
+
+.searchFrom input[type="search"]:focus {
+  width: 500px;
+  background-color: #fff;
+  border: solid 1px #66CC75;
+  box-shadow: 5px 20px 50px rgba(109, 207, 246, .5);
+  z-index: 2;
+}
+
+.searchNoti {
+  display: none;
+  opacity: 0;
+  text-align: center;
+  color: #fff;
+  text-shadow: 5px 8px 25px #000000b8;
+  transition: all .5s;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+  z-index: -1;
+  width: 90%
+}
+
+.loadAllModules {
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 20px;
+  box-shadow: var(--shadow-effect);
+  opacity: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(3, calc(33.333333333333336% - 20px));
+  }
+  .u-section-1 .u-text-3 {
+    letter-spacing: normal;
+    font-weight: 700;
+    text-transform: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(2, calc(50% - 15px));
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 {min-height: 1327px}
+  .u-section-1 .u-shape-1 {height: 812px}
+  .u-section-1 .u-text-2 {
+    
+  }
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .u-section-1 .u-container-layout-3 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .searchNoti {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {padding: 15px;}
+  .u-section-1 .u-repeater-1 {grid-template-columns: 100%}
+  .u-section-1 {min-height: 1449px}
+  .u-section-1 .u-shape-1 {height: 884px}
+  .searchFrom input[type=search]:focus {width: 220px}
+  .u-text-2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
